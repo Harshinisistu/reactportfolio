@@ -1,0 +1,147 @@
+.about {
+  display: flex;
+  justify-content: column;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  gap: 2rem;
+  background: var(--snd-bg-color);
+}
+
+/*about content-2*/
+.box {
+  position: relative;
+  background: var(--snd-bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  text-align: left;
+  /* width: 300px;
+    height: 300px; */
+  border-radius: 8px;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: 15px 10px;
+  /* max-width: 600px; */
+}
+/*about-text*/
+.about-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: left;
+  padding: 2rem 4rem;
+  gap: 1rem;
+  width: 100%;
+}
+.about-content p {
+  font-size: 1.4rem;
+  margin: 2rem 0 3rem;
+}
+.box h3 {
+  text-align: left;
+  /* line-height: 1.2; */
+  font-size: 1.7rem;
+}
+
+.box h4 {
+  font-size: 1.4rem;
+  text-align: left;
+}
+.box p {
+  font-size: 1.2rem;
+}
+
+.skills {
+  list-style: none;
+  width: 100%;
+  /* margin: 50px auto; */
+  margin: 20px 0px;
+  color: var(--text-color);
+  padding: 20px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  border-radius: 10px;
+  /* max-width: 600px; */
+}
+.skills li {
+  /* display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px; */
+  margin: 20px 0;
+  padding: 10px;
+}
+.bar {
+  background: #353b48;
+  height: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  display: block;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.bar:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.bar span {
+  height: 20px;
+  float: left;
+  background: linear-gradient(
+    135deg,
+    rgba(236, 0, 140, 1) 0%,
+    rgba(252, 103, 103, 1) 100%
+  );
+}
+
+@keyframes html {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 90%;
+  }
+}
+@keyframes css {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 70%;
+  }
+}
+@keyframes php {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 45%;
+  }
+}
+@keyframes javascript {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 80%;
+  }
+}
+
+.html {
+  width: 90%;
+  animation: html 3s;
+}
+.css {
+  width: 70%;
+  animation: css 3s;
+}
+.php {
+  width: 45%;
+  animation: php 3s;
+}
+.javascript {
+  width: 80%;
+  animation: javascript 3s;
+}

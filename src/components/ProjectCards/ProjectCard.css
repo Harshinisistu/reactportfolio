@@ -1,0 +1,85 @@
+/* .project-heading {
+  text-align: center;
+  padding: 4rem 0 2rem 0;
+} */
+.project-container {
+  max-width: 1140px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
+  padding: 5rem;
+  /* border-radius: 10px; */
+}
+.project-card {
+  background-color: var(--snd-bg-color);
+  padding: 1.2rem 1rem;
+  border-radius: 10px;
+}
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.project-title {
+  color: var("--text-color");
+  padding: 1rem 0;
+}
+.project-details p {
+  padding-bottom: 1rem;
+  font-size: 1.1rem;
+  text-align: justify;
+}
+.project-techno p {
+  padding-bottom: 1rem;
+  font-size: 1.1rem;
+  text-align: justify;
+}
+.project-btns .btn {
+  padding: 0.5rem 1rem;
+}
+.project-btns {
+  /* display: flex; */
+  /* justify-content: space-between; */
+  align-items: center;
+  padding: 0.5rem 0;
+}
+@media screen and (max-width: 740px) {
+  .project-container {
+    margin: auto;
+    max-width: 90%;
+    grid-template-columns: 1fr;
+  }
+}
+/* vnjsdv */
+.container {
+  padding: 0 24px;
+}
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #c6c6c6;
+}
+.tab-button {
+  padding: 8px 16px;
+  border-radius: 0;
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+}
+.tab-button:hover {
+  border-bottom: 2px solid #1d3557;
+}
+.tab-button.active {
+  border-bottom: 2px solid #1d3557;
+  color: #1d3557;
+  font-weight: 700;
+}
+.tab-page {
+  padding: 24px 16px 16px 16px;
+  display: none;
+}
+.tab-page.active {
+  display: block;
+}
