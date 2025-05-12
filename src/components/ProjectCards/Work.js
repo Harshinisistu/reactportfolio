@@ -1,93 +1,33 @@
 import "./ProjectCard.css";
-import React from "react";
+import React, { useState } from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectCardData from "./ProjectCardData";
-import { useState } from "react";
+
 const Work = () => {
-  // return (
-  //   <div className="work-container">
-  //     <h1 className="project-heading"> </h1>
-
-  //     <div className="project-container">
-  //       {ProjectCardData.map((val, index) => {
-  //         return (
-  //           <ProjectCard
-  //             key={index}
-  //             image={val.image}
-  //             title={val.title}
-  //             description={val.description}
-  //             technologies={val.technologies}
-  //             view={val.view}
-  //           />
-  //         );
-  //       })}
-  //     </div>
-  //   </div>
-  // );
-  // };
-
-  // import "./ProjectCard.css";
-  // import React, { useState } from "react";
-  // import ProjectCard from "./ProjectCard";
-  // import ProjectCardData from "./ProjectCardData";
-  // import { Tabs, Tab } from "react-bootstrap";
-
-  // const Work = () => {
-  //   const [key, setKey] = useState("tab1");
-
-  //   return (
-  //     <div className="work-container">
-  //       <h1 className="project-heading">Projects</h1>
-
-  //       <Tabs
-  //         activeKey={key}
-  //         onSelect={(index) => setKey(index)}
-  //         className="mb-3"
-  //       >
-  //         <Tab eventKey="tab1" title="All Projects">
-  //           <div className="project-container">
-  //             {ProjectCardData.map((val, index) => {
-  //               return (
-  //                 <ProjectCard
-  //                   key={index}
-  //                   image={val.image}
-  //                   title={val.title}
-  //                   description={val.description}
-  //                   technologies={val.technologies}
-  //                   view={val.view}
-  //                 />
-  //               );
-  //             })}
-  //           </div>
-  //         </Tab>
-  //         <Tab eventKey="tab2" title="Lorem Text">
-  //           <div className="lorem-text">
-  //             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-  //             <p>
-  //               Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas
-  //               odio, vitae scelerisque enim ligula venenatis dolor.
-  //             </p>
-  //             <p>
-  //               Maecenas nisl est, ultrices nec congue eget, auctor vitae massa.
-  //             </p>
-  //           </div>
-  //         </Tab>
-  //         <Tab eventKey="tab3" title="Another Tab">
-  //           <div className="lorem-text">
-  //             <p>This is another tab with different content.</p>
-  //           </div>
-  //         </Tab>
-  //       </Tabs>
-  //     </div>
-  //   );
-  // };
-
-  // export default Work;
-
   const [active, setActive] = useState("tab-1");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 3;
 
   const handleClick = (event) => {
     setActive(event.target.id);
+    setCurrentPage(1); // Reset to first page when switching tabs
+  };
+
+  // Calculate the current items to display
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = ProjectCardData.slice(indexOfFirstItem, indexOfLastItem);
+
+  // Calculate total pages
+  const totalPages = Math.ceil(ProjectCardData.length / itemsPerPage);
+
+  // Function to handle page change
+  const handlePageChange = (direction) => {
+    if (direction === "next" && currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    } else if (direction === "prev" && currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
   };
 
   return (
@@ -120,7 +60,7 @@ const Work = () => {
           <div className={`tab-page ${active === "tab-1" ? "active" : ""}`}>
             <p>This is page 1</p>
             <div className="project-container">
-              {ProjectCardData.map((val, index) => {
+              {currentItems.map((val, index) => {
                 return (
                   <ProjectCard
                     key={index}
@@ -132,6 +72,23 @@ const Work = () => {
                   />
                 );
               })}
+            </div>
+            <div className="pagination">
+              <button
+                onClick={() => handlePageChange("prev")}
+                disabled={currentPage === 1}
+              >
+                Previous
+              </button>
+              <span>
+                Page {currentPage} of {totalPages}
+              </span>
+              <button
+                onClick={() => handlePageChange("next")}
+                disabled={currentPage === totalPages}
+              >
+                Next
+              </button>
             </div>
           </div>
           <div className={`tab-page ${active === "tab-2" ? "active" : ""}`}>

@@ -1,5 +1,6 @@
 import React from "react";
 import "./AboutPage.css"; // Import the CSS file for styling
+
 const AboutPage = () => {
   return (
     <section class="about">
@@ -44,7 +45,9 @@ const AboutPage = () => {
           </li>
         </div>
         <div className="experience">
-          <h1>Experience</h1>
+          <div className="heading">
+            <h1>Experience</h1>
+          </div>
           <div className="box">
             <h3>Senior Front-End Developer</h3>
             <h4>Tech Solutions Inc.</h4>
@@ -65,7 +68,9 @@ const AboutPage = () => {
           </div>
         </div>
         <div className="education">
-          <h1>Education</h1>
+          <div className="heading">
+            <h1>Education</h1>
+          </div>
           <div className="box">
             <h3>BSc Computer Science</h3>
             <h4>University of Technology</h4>
